@@ -83,15 +83,15 @@ class Contact extends Component {
                         <Col>
                             <div id="page">
                                 <p><strong><span style={{ textDecoration: 'underline' }}>General Information</span></strong></p>
-                                <p><strong>Telephones : </strong>+94 11 2 421281 <br /><strong>Fax Nos : </strong>+94 11 2 446490<br /><strong>Email : </strong>
-                                    <a href="mailto:gmr@railway.gov.lk">gmr@railway.gov.lk</a>
+                                <p><strong>Telephones : </strong>+91 1234567890 <br /><strong>Fax Nos : </strong>+91 1234567890<br /><strong>Email : </strong>
+                                    <a href="mailto:busticket40@gmail.com">busticket40@gmail.com</a>
                                     <span style={{ display: 'none' }}>This e-mail address is being protected from spambots. You need JavaScript enabled to view it
                                         </span>
                                 </p>
-                                <p><strong>Railway Head Office Exchange Number</strong> : +94 11 2 421281</p>
-                                <p><strong>Fort Railway Station Inquiries</strong> : +94 11 2 434215</p>
-                                <p><strong>Deputy Operating Superintendent</strong> : +94 11 2 687099</p>
-                                <p className="MsoNormal"><strong>Assistant Transportation Superintendent (Operation)</strong> : +94 11 2 692286</p>
+                                <p><strong>Railway Head Office Exchange Number</strong> : +91 1234567890</p>
+                                <p><strong>Fort Railway Station Inquiries</strong> : +91 1234567890</p>
+                                <p><strong>Deputy Operating Superintendent</strong> : +91 1234567890</p>
+                                <p className="MsoNormal"><strong>Assistant Transportation Superintendent (Operation)</strong> : +91 1234567890</p>
                             </div>
                         </Col>
                     </Row>

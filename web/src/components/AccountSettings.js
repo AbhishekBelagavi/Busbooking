@@ -23,6 +23,7 @@ class AccountSettings extends Component {
 
     componentDidMount() {
         var user = localStorage.getItem('user')
+        console.log(user)
         if (user) {
             user = JSON.parse(user)
             this.setState({

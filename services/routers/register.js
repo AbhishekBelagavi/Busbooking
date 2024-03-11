@@ -10,6 +10,7 @@ router.post('/register', async (req, res) => {
     const body = req.body
     const email = body.email
     //let userFactory = new UserFactory();
+    console.log(req.body)
     var exist = ""
     try {
         await UserModel.findOne({email: email}, (err, val) => {
@@ -32,8 +33,8 @@ router.post('/register', async (req, res) => {
             if (body.nic) {
                 discount = await client.validateNIC(body.nic)
             }
-            var type = (body.googleId) ? "google" : "regular";
-            
+            var type = (body.iss) ? "google" : "regular";
+            console.log(type)
             //creating user
             var user = UserFactory.createUser({...body, type, discount});
 

@@ -4,7 +4,10 @@ import { Modal, Button, Form, Image, Row, Alert } from 'react-bootstrap'
 import { login, updateAccount, register } from '../Services'
 import { getHash } from './commons/Functions'
 import { toast } from 'react-toastify'
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
+import { GoogleOAuthProvider,GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+
 
 class Login extends Component {
 
@@ -39,7 +42,9 @@ class Login extends Component {
         if (form.checkValidity() === true) {
             login({ username: this.state.username, password: getHash(this.state.password) })
                 .then(res => {
+                    console.log(res.enabled)
                     if (res.enabled === false) {
+                        console.log(res.loginCount)
                         if (res.loginCount === 0) {
                             toast.error("Please confirm your email !")
                         } else {
@@ -75,19 +80,26 @@ class Login extends Component {
     };
 
     responseGoogle = async (response) => {
-        const profileObj = response.profileObj;
-        this.setState({ imageUrl: profileObj.imageUrl });
-        await register(profileObj).then(res => {
-            profileObj._id = res._id;
-            profileObj.fname = profileObj.givenName;
+        var resp = jwtDecode(response.credential)
+        // console.log(res)
+        const img = resp.picture;
+        // console.log(profileObj)
+        this.setState({ imageUrl: img });
+
+        await register(resp).then(res => {
+            console.log(resp)
+            resp._id = res._id;
+            resp.fname = res.givenName;
         }).catch(e => {
+            console.log(e)
             this.errResponseGoogle(e);
         });
-        localStorage.setItem('user', JSON.stringify(profileObj));
+        localStorage.setItem('user', JSON.stringify(resp));
         this.props.handleClose();
     };
 
     errResponseGoogle = (response) => {
+        console.log('hi')
         toast.error("Unable to Sign in with Google !");
     }
 
@@ -104,13 +116,18 @@ class Login extends Component {
                             {img}
                         </Row>
                         <Row style={{ alignItems: 'center', justifyContent: 'center' }}>
-                            <GoogleLogin
+                        <GoogleOAuthProvider clientId="1060948794544-ppl3mm2h34m49ubk7a9kmneasbjshukj.apps.googleusercontent.com">
+                        <GoogleLogin
                                 style={{ width: '100%' }}
-                                clientId="1060948794544-ppl3mm2h34m49ubk7a9kmneasbjshukj.apps.googleusercontent.com"
+                                
                                 buttonText="LOGIN WITH GOOGLE"
                                 onSuccess={this.responseGoogle}
                                 onFailure={this.errResponseGoogle}
                             />
+                            
+                        </GoogleOAuthProvider>
+
+                            
                         </Row>
                         <hr />
                         <Form.Group controlId="formBasicEmail">

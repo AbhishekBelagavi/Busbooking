@@ -191,7 +191,7 @@ class Home extends Component {
             <Form style={{ padding: 20 }} onSubmit={(e) => this.handleSubmit(e)}>
                 <Row style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <Form.Row style={{ width: '75%', borderBottom: '1px solid rgb(200,200,200)', marginBottom: 20 }}>
-                        <h4>Book Train Tickets</h4>
+                        <h4>Book Bus Tickets</h4>
                     </Form.Row>
                     <Form.Row style={{ width: '75%' }}>
                         <Form.Group as={Col} controlId="from">
@@ -206,7 +206,7 @@ class Home extends Component {
                     </Form.Row>
                     <Form.Row style={{ width: '75%' }}>
                         <Form.Group as={Col} controlId="from">
-                            <Form.Label>Train</Form.Label>
+                            <Form.Label>Bus</Form.Label>
                             <Select options={this.state.trains} onChange={this.handleChange("train")}
                                 value={this.state.train} />
                         </Form.Group>
@@ -255,15 +255,15 @@ class Home extends Component {
                                     </tr>
                                     <tr>
                                         <td align='right' style={{ border: "1px solid #dee2e6" }}>Amount</td>
-                                        <td align='right' style={{ border: "1px solid #dee2e6" }}>{this.state.amount} LKR</td>
+                                        <td align='right' style={{ border: "1px solid #dee2e6" }}> Rs {this.state.amount} </td>
                                     </tr>
                                     <tr>
                                         <td align='right' style={{ border: "1px solid #dee2e6" }}>Discount</td>
-                                        <td align='right' style={{ border: "1px solid #dee2e6" }}>{this.state.discount} LKR</td>
+                                        <td align='right' style={{ border: "1px solid #dee2e6" }}>Rs {this.state.discount} </td>
                                     </tr>
                                     <tr>
                                         <td align='right' style={{ border: "1px solid #dee2e6" }}>Total</td>
-                                        <td align='right' style={{ border: "1px solid #dee2e6" }}>{this.state.total} LKR</td>
+                                        <td align='right' style={{ border: "1px solid #dee2e6" }}> Rs {this.state.total} </td>
                                     </tr>
                                 </tbody>
                             </Table>

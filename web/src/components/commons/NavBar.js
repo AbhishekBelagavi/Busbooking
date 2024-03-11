@@ -14,7 +14,7 @@ class NavBar extends Component {
             <>
                 <Navbar bg="light" expand="sm">
                     <Navbar.Brand href="/">
-                        Railway E-Ticketing
+                        Bus E-Ticketing
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -43,7 +43,7 @@ class NavBar extends Component {
 
                 <Row style={{alignItems: 'center', justifyContent: 'center', width: '100%', margin: 0}}>
                     <div style={{width: '100%'}}>
-                        <Image style={{width: '100%'}} src={require("../../images/railway2.jpg")}/>
+                        <Image style={{width: '100%', height:'500px'} } src={require("../../images/bus-booking-software.jpg")}/>
                     </div>
                 </Row>
 

@@ -77,7 +77,7 @@ router.post('/railway/reservations', async (req, res) => {
             console.log(err);
         });
 
-        const html = '<html><body><h2><u>Reservation Slip</u></h2><p>Reference No : <b> ' + result._id + ' </b><br><br>From <b> ' + body.from + ' </b> to <b> ' + body.to + ' </b><br>' + 'Date :<b> ' + body.date + ' </b> Time :<b> ' + body.time + ' </b><br>Train : <b>' + body.train + ' </b> Class: <b> ' + body.trainClass + ' </b><br>Quantity : <b> ' + body.qty + ' </b></p><p>Total : <b> ' + body.total + ' LKR</b></p><br><img src="cid:123"/></body></html>'
+        const html = '<html><body><h2><u>Reservation Slip</u></h2><p>Reference No : <b> ' + result._id + ' </b><br><br>From <b> ' + body.from + ' </b> to <b> ' + body.to + ' </b><br>' + 'Date :<b> ' + body.date + ' </b> Time :<b> ' + body.time + ' </b><br> Bus : <b>' + body.train + ' </b> Class: <b> ' + body.trainClass + ' </b><br>Quantity : <b> ' + body.qty + ' </b></p><p>Total : <b> ' + body.total + ' LKR</b></p><br><img src="cid:123"/></body></html>'
         client.sendReservationEmail({
             ...body,
             html: html,

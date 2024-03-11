@@ -20,6 +20,7 @@ class Reservations extends Component {
             paginateItems: []
         };
     }
+    
 
     componentDidMount() {
         this.updateReservations()
@@ -94,6 +95,8 @@ class Reservations extends Component {
         </Pagination>;
     }
 
+     
+
     paginateReservations = () => {
         let items = [];
         const offset = (this.state.offset - 1) * 5
@@ -124,7 +127,7 @@ class Reservations extends Component {
                                             <Col>From <b>{reservation.from}</b> to <b>{reservation.to}</b></Col>
                                         </Row>
                                         <Row>
-                                            <Col>Train : {reservation.train}</Col>
+                                            <Col>Bus : {reservation.train}</Col>
                                         </Row>
                                         <Row>
                                             <Col>Class : {reservation.trainClass}</Col>
@@ -133,7 +136,16 @@ class Reservations extends Component {
                                             <Col>Quantity : {reservation.qty}</Col>
                                         </Row>
                                     </Col>
-                                    <Col align='right'><QRCode value={url}/></Col>
+                                    <Col align='right'><QRCode id="qrCodeEl" value={url}/>
+                                    <br />
+      <input
+        type="button"
+        className="download-btn"
+        value="Download"
+        onClick={downloadQRCode}
+      />
+                                    </Col>
+
                                 </Row>
                                 <hr/>
                                 <Row>
@@ -176,6 +188,18 @@ class Reservations extends Component {
     }
 
 }
+const downloadQRCode = () => {
+        const qrCodeURL = document.getElementById('qrCodeEl')
+          .toDataURL("image/png")
+          .replace("image/png", "image/octet-stream");
+        console.log(qrCodeURL)
+        let aEl = document.createElement("a");
+        aEl.href = qrCodeURL;
+        aEl.download = "QR_Code.png";
+        document.body.appendChild(aEl);
+        aEl.click();
+        document.body.removeChild(aEl);
+      }
 
 export default Reservations;
 

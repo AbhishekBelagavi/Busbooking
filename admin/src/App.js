@@ -104,7 +104,7 @@ class App extends Component {
                 <Route path="/routeManage" render={(props) => {
                   return (<RouteManage {...props} />);
                 }}/>
-                <Route path="/trainManage" render={(props) => {
+                <Route path="/BusManage" render={(props) => {
                   return (<TrainManage {...props} />);
                 }}/>
                 <Route path="/reports" render={(props) => {

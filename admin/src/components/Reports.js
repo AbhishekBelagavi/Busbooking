@@ -88,7 +88,7 @@ class Reports extends React.Component {
                                 marginBottom: 20,
                                 fontWeight: "bold"
                             }}>
-                                Annual Reports Filter by Trains
+                                Annual Reports Filter by Buses
                             </h6>
                             <Form onSubmit={this.handleSubmitOne}>
                                 <FormGroup>
@@ -111,7 +111,7 @@ class Reports extends React.Component {
                                 marginBottom: 20,
                                 fontWeight: "bold"
                             }}>
-                                Monthly Reports Filter by Trains
+                                Monthly Reports Filter by Buses
                             </h6>
                             <Form onSubmit={this.handleSubmitTwo}>
                                 <FormGroup>

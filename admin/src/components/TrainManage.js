@@ -27,7 +27,7 @@ class TrainManage extends React.Component {
             firstClass: 0,
             secondClass: 0,
             thirdClass: 0,
-            delName: 'Select a Train',
+            delName: 'Select a Bus',
             selectRoutes: [],
             selectTrains: []
         }
@@ -93,16 +93,16 @@ class TrainManage extends React.Component {
 
             fetch(config.baseUrl + "/railway/train", option).then(res => res.json()).then(res => {
                 if (res.trainExist) {
-                    toast.error("Train Already Exist")
+                    toast.error("Bus Already Exist")
                 } else {
-                    toast.success("Train Created Successfully")
+                    toast.success("Bus Created Successfully")
                     setTimeout(() => {
                         window.location.reload();
                     }, 2000)
                 }
             });
         } else {
-            toast.error("Train Name is Empty")
+            toast.error("Bus Name is Empty")
         }
 
     }
@@ -126,12 +126,12 @@ class TrainManage extends React.Component {
 
         fetch(config.baseUrl + "/railway/train", option).then(res => res.json()).then(res => {
             if (res.status) {
-                toast.success("Train Deleted Successfully")
+                toast.success("Bus Deleted Successfully")
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000)
             } else {
-                toast.error("Error Deleting the Train")
+                toast.error("Error Deleting the Bus")
             }
         });
 
@@ -156,7 +156,7 @@ class TrainManage extends React.Component {
                         marginBottom: 20,
                         paddingTop: 5
                     }}>
-                        <h4>Manage&nbsp;Trains</h4>
+                        <h4>Manage&nbsp;Buses</h4>
                     </Row>
                     <Row>
                         <Col sm style={{marginTop: "2%", paddingRight: "10%"}}>
@@ -166,13 +166,13 @@ class TrainManage extends React.Component {
                                 marginBottom: 20,
                                 fontWeight: "bold"
                             }}>
-                                Add New Train
+                                Add New Bus
                             </h6>
                             <Form onSubmit={this.handleSubmitOne}>
                                 <FormGroup>
-                                    <Label for="trainName">Train Name</Label>
+                                    <Label for="trainName">Bus Name</Label>
                                     <Input type="text" name="name" id="trainName"
-                                           placeholder="New Train Name" value={this.state.name}
+                                           placeholder="New Bus Name" value={this.state.name}
                                            onChange={this.handleChange}/>
                                 </FormGroup>
                                 <FormGroup>
@@ -204,7 +204,7 @@ class TrainManage extends React.Component {
                                                    onChange={this.handleChange}/>
                                         </FormGroup>
                                         <FormGroup>
-                                            <Button color="primary">Create Train</Button>
+                                            <Button color="primary">Create Bus</Button>
                                         </FormGroup>
                                     </div>
                                 )}
@@ -217,20 +217,20 @@ class TrainManage extends React.Component {
                                 marginBottom: 20,
                                 fontWeight: "bold"
                             }}>
-                                Delete Trains
+                                Delete Buses
                             </h6>
                             <Form onSubmit={this.handleSubmitTwo}>
                                 <FormGroup>
                                     <Label for="deleteTrainName">Route Name</Label>
                                     <Input type="select" name="delName" id="deleteTrainName"
                                            value={this.state.delName} onChange={this.handleChange}>
-                                        <option>Select a Train</option>
+                                        <option>Select a Bus</option>
                                         {trainSelect}
                                     </Input>
                                 </FormGroup>
-                                {this.state.delName !== "Select a Train" &&
+                                {this.state.delName !== "Select a Bus" &&
                                 <FormGroup>
-                                    <Button color="danger">Delete Train</Button>
+                                    <Button color="danger">Delete Bus</Button>
                                 </FormGroup>
                                 }
                             </Form>

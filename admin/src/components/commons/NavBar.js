@@ -12,7 +12,7 @@ class NavBar extends Component {
         return (
             <Navbar bg="dark" variant="dark" expand="sm">
                 <Navbar.Brand href="/">
-                    E - Railway Admin Panel
+                    Bus Portal Admin Panel
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -22,7 +22,7 @@ class NavBar extends Component {
                                 <Nav.Link href="/">{'Home'}</Nav.Link>
                                 <Nav.Link href="/reports">{'Reports'}</Nav.Link>
                                 <Nav.Link href="/routeManage">{'Routes'}</Nav.Link>
-                                <Nav.Link href="/trainManage">{'Trains'}</Nav.Link>
+                                <Nav.Link href="/BusManage">{'Buses'}</Nav.Link>
                                 <Nav.Link href="/admins">{'Admins'}</Nav.Link>
                                 <Nav.Link href="/users">{'Users'}</Nav.Link>
                                 <NavDropdown title={user.fname} id="nav-dropdown" alignRight>

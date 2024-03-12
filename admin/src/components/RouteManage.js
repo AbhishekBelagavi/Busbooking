@@ -82,9 +82,9 @@ class RouteManage extends React.Component {
 
             fetch(config.baseUrl + "/railway/route", option).then(res => res.json()).then(res => {
                 if (res.stationExist) {
-                    toast.error("Station Already Exist")
+                    toast.error("Bus Station Already Exist")
                 } else {
-                    toast.success("Station Created Successfully")
+                    toast.success(" Bus Station Created Successfully")
                     setTimeout(() => {
                         window.location.reload();
                     }, 2000)

@@ -29,7 +29,7 @@ module.exports = {
         });
 
         var mailOptions = {
-            from: '"Sri Lanka Railways"' + emailConfig.email,
+            from: '"Bus Booking portal"' + emailConfig.email,
             to: body.email,
             subject: body.subject,
             html: body.html
@@ -55,7 +55,7 @@ module.exports = {
         });
 
         var mailOptions = {
-            from: '"Sri Lanka Railways"' + emailConfig.email,
+            from: '"Bus Booking portal"' + emailConfig.email,
             to: body.email,
             subject: body.subject,
             html: body.html,
@@ -78,12 +78,13 @@ module.exports = {
 
     sendTextMessage: async function (body) {
         var to = body.phone
+        console.log(to)
         if (to.startsWith("0")) {
-            to = to.replace("0", "+94")
+            to = to.replace("0", "+91")
         }
         twilio.messages
             .create({
-                body: "Sri Lanka Railway - Reservation Slip \n\n Reference No : " + body.reservationID + " \n\n From " + body.from + " to " + body.to + " \n Date : " + body.date + " \n Time : " + body.time + " \n Train : " + body.train + " \n Class: " + body.trainClass + " \n Quantity : " + body.qty + " \n Total : " + body.total + " LKR",
+                body: "Bus Booking portal - Reservation Slip \n\n Reference No : " + body.reservationID + " \n\n From " + body.from + " to " + body.to + " \n Date : " + body.date + " \n Time : " + body.time + " \n Train : " + body.train + " \n Class: " + body.trainClass + " \n Quantity : " + body.qty + " \n Total : Rs" + body.total + " ",
                 from: config.messageClient.phoneNo,
                 to: to
             })

@@ -153,9 +153,9 @@ class Reservations extends Component {
                                 </Row>
                                 <Row>
                                     <br/>
-                                    <Col>Amount : {reservation.amount.toFixed(2)}</Col>
-                                    <Col>Discount : {reservation.discount.toFixed(2)}</Col>
-                                    <Col align='right'><b>Total :</b> {reservation.total.toFixed(2)}</Col>
+                                    <Col>Amount : Rs {reservation.amount.toFixed(2)}</Col>
+                                    <Col>Discount : Rs {reservation.discount.toFixed(2)}</Col>
+                                    <Col align='right'><b>Total :</b>  Rs {reservation.total.toFixed(2)}</Col>
                                 </Row>
                                 <Row>
                                     <Col style={{paddingTop: 10}} align='right'>

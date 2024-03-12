@@ -8,6 +8,8 @@ const reservationModel = require('../model/reservation')
 const client = require('../client')
 const configs = require('../config.json')
 const qrcode = require('qrcode');
+const fs = require("fs");
+
 
 router.get('/railway/routes', async (req, res) => {
     try {
@@ -68,20 +70,40 @@ router.post('/railway/reservations', async (req, res) => {
     try {
         const body = req.body
         var reservation = new reservationModel(body)
+        // console.log(body)
         var result = await reservation.save()
+
+        
 
         // send email
         const img = await qrcode.toDataURL(configs.frontendUrl + "/ticket/" + result._id);
-        var base64Data = img.replace(/^data:image\/png;base64,/, "");
-        await require("fs").writeFile("images/" + result._id + ".png", base64Data, 'base64', function (err) {
-            console.log(err);
-        });
+        // console.log(img)
+        const base64Data = img.replace(/^data:image\/png;base64,/, "");
+        // console.log(base64Data)
+        const path = require("path");
 
-        const html = '<html><body><h2><u>Reservation Slip</u></h2><p>Reference No : <b> ' + result._id + ' </b><br><br>From <b> ' + body.from + ' </b> to <b> ' + body.to + ' </b><br>' + 'Date :<b> ' + body.date + ' </b> Time :<b> ' + body.time + ' </b><br> Bus : <b>' + body.train + ' </b> Class: <b> ' + body.trainClass + ' </b><br>Quantity : <b> ' + body.qty + ' </b></p><p>Total : <b> ' + body.total + ' LKR</b></p><br><img src="cid:123"/></body></html>'
+        const dirPath = "images/";
+        if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath, { recursive: true });
+        }
+        const imagePath = path.join(__dirname, "../images", result._id + ".png");
+
+        console.log(imagePath)
+
+        // const imagePath = "images/" + result._id + ".png";
+
+        try {
+            fs.writeFileSync(imagePath, base64Data, 'base64');
+            console.log("Image saved successfully:", imagePath);
+        } catch (err) {
+            console.error("Error saving image:", err);
+        }
+
+        const html = '<html><body><h2><u>Reservation Slip</u></h2><p>Reference No : <b> ' + result._id + ' </b><br><br>From <b> ' + body.from + ' </b> to <b> ' + body.to + ' </b><br>' + 'Date :<b> ' + body.date + ' </b> Time :<b> ' + body.time + ' </b><br> Bus : <b>' + body.train + ' </b> Class: <b> ' + body.trainClass + ' </b><br>Quantity : <b> ' + body.qty + ' </b></p><p>Total : Rs<b> ' + body.total + ' </b></p><br><img src="cid:123"/></body></html>'
         client.sendReservationEmail({
             ...body,
             html: html,
-            subject: 'Railway e-Ticket',
+            subject: 'Bus e-Ticket',
             path: 'images/' + result._id + '.png'
         })
 

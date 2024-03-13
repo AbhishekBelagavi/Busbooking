@@ -22,6 +22,7 @@ import Reports from './components/Reports'
 import ReportCharts from './components/ReportCharts'
 import BarChart from './components/BarChart'
 import PieChart from './components/PieChart'
+import Buslocation from './components/Buslocation'
 
 
 class App extends Component {
@@ -119,6 +120,7 @@ class App extends Component {
                 <Route path="/pieChart" render={(props) => {
                   return (<PieChart {...props} />);
                 }}/>
+                <Route path="/Buslocation" component={Buslocation} />
               </Switch>
             </Suspense>
           </Router>

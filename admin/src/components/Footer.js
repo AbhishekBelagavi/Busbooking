@@ -14,7 +14,7 @@ class Footer extends Component {
                     width: '100%'
                 }}>
                     <div className="footer-copyright text-center py-3">© 2024 Copyright
-                        <p>Team Name</p>
+                        <p>Mava</p>
                     </div>
                 </footer>
             </div>

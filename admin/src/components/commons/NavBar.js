@@ -18,11 +18,11 @@ class NavBar extends Component {
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/reports">Reports</Nav.Link>
                                 <Nav.Link href="/routeManage">Routes</Nav.Link>
-                                <Nav.Link href="/trainManage">Trains</Nav.Link>
+                                <Nav.Link href="/BusManage">Buses</Nav.Link>
                                 <Nav.Link href="/admins">Admins</Nav.Link>
                                 <Nav.Link href="/users">Users</Nav.Link>
                                 
-                                <Nav.Link href="/buslocation">Set Bus Location</Nav.Link> {/* Add the "Set Bus Location" option */}
+                                <Nav.Link href="/buslocation">Validity</Nav.Link> {/* Add the "Set Bus Location" option */}
                                 <NavDropdown title={user.fname} id="nav-dropdown" alignRight>
                                     <NavDropdown.Item href="/account">Account Settings</NavDropdown.Item>
                                     <NavDropdown.Divider />

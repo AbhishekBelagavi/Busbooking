@@ -6215,6 +6215,11 @@
     "json-schema" "0.2.3"
     "verror" "1.10.0"
 
+"jsqr@^1.4.0":
+  "integrity" "sha512-dxLob7q65Xg2DvstYkRpkYtmKm2sPJ9oFhrhmudT1dZvNFFTlroai3AWSpLey/w5vMcLBXRgOJsbXpdN9HzU/A=="
+  "resolved" "https://registry.npmjs.org/jsqr/-/jsqr-1.4.0.tgz"
+  "version" "1.4.0"
+
 "jss-camel-case@^6.0.0":
   "integrity" "sha512-HPF2Q7wmNW1t79mCqSeU2vdd/vFFGpkazwvfHMOhPlMgXrJDzdj9viA2SaHk9ZbD5pfL63a8ylp4++irYbbzMQ=="
   "resolved" "https://registry.npmjs.org/jss-camel-case/-/jss-camel-case-6.1.0.tgz"

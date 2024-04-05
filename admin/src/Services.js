@@ -14,6 +14,11 @@ export function admins() {
     return callGet(baseUrl + '/admin/admins');
 }
 
+export function getReservation(rid) {
+    return callGet(baseUrl + '/railway/reservations/' + rid);
+}
+
+
 export function users() {
     return callGet(baseUrl + '/users');
 }
